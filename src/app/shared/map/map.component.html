@@ -1,8 +1,4 @@
 <div>
-  <app-header></app-header>
-</div>
-
-<div>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker
       *ngFor="let marker of markers"
@@ -12,7 +8,4 @@
     >
     </agm-marker>
   </agm-map>
-</div>
-<div>
-  <app-footer></app-footer>
 </div>

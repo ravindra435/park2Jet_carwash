@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import { MapsAPILoader } from "@agm/core";
+import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: "app-main",
-  templateUrl: "./main.component.html",
-  styleUrls: ["./main.component.scss"],
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss'],
 })
-export class MainComponent implements OnInit {
+export class MapComponent implements OnInit {
   public markers: any[];
   public lat: number;
   public lng: number;

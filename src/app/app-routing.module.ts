@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './shared/main/main.component';
+import { MaindashboardComponent } from './body/maindashboard/maindashboard.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MainComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('./body/body.module').then((m) => m.BodyModule),
-      },
-    ],
+    path: 'main',
+    loadChildren: () =>
+      import('./body/body.module').then((module) => module.BodyModule),
   },
 ];
 
