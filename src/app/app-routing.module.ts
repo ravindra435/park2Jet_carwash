@@ -1,21 +1,16 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { MainComponent } from "./shared/main/main.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './shared/main/main.component';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/home",
-    pathMatch: "full",
-  },
-  {
-    path: "",
+    path: '',
     component: MainComponent,
     children: [
       {
-        path: "home",
+        path: '',
         loadChildren: () =>
-          import("./shared/shared.module").then((m) => m.SharedModule),
+          import('./body/body.module').then((m) => m.BodyModule),
       },
     ],
   },
