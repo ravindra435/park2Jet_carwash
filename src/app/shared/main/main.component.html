@@ -2,15 +2,16 @@
   <app-header></app-header>
 </div>
 
-<!-- <div>
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
-</div>
-<div>Body</div> -->
-
 <div>
-  <router-outlet></router-outlet>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker
+      *ngFor="let marker of markers"
+      [latitude]="marker.position.lat"
+      [longitude]="marker.position.lng"
+      [label]="marker.label"
+    >
+    </agm-marker>
+  </agm-map>
 </div>
 <div>
   <app-footer></app-footer>
