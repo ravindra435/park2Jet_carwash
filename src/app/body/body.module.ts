@@ -7,9 +7,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { ContactComponent } from './contact/contact.component';
+import { JoinTeamComponent } from './join-team/join-team.component';
+import { CommunityComponent } from './community/community.component';
+import { GiftCardsComponent } from './gift-cards/gift-cards.component';
+import { ShopComponent } from './shop/shop.component';
+import { WashClubComponent } from './wash-club/wash-club.component';
 
 @NgModule({
-  declarations: [DashboardComponent, MaindashboardComponent, ContactComponent],
+  declarations: [DashboardComponent, MaindashboardComponent, ContactComponent, JoinTeamComponent, CommunityComponent, GiftCardsComponent, ShopComponent, WashClubComponent],
   imports: [CommonModule, BodyRoutingModule, SharedModule],
 })
 export class BodyModule {}
