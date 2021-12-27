@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark header_content p-3">
   <div class="row" style="width: 100%">
-    <div class="col-md-3 text-left">
+    <div class="col-md-3 col-12">
       <a class="navbar-brand" [routerLink]="['/main/dashboard']"
         ><img
           src="
@@ -10,6 +10,7 @@
         />
       </a>
       <button
+        style="float: right"
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -19,10 +20,10 @@
         aria-label="Toggle navigation"
         (click)="toggleNavbar()"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="fa fa-bars"></span>
       </button>
     </div>
-    <div class="col-md-9 mt-3">
+    <div class="col-md-9 col-12 mt-3">
       <div
         class="collapse navbar-collapse"
         id="navbarSupportedContent"
@@ -48,16 +49,20 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Unlimited Wash Club </a>
+            <a class="nav-link" [routerLink]="['/main/unlimited']"
+              >Unlimited Wash Club
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shop</a>
+            <a class="nav-link" [routerLink]="['/main/shop']">Shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Gift Cards</a>
+            <a class="nav-link" [routerLink]="['/main/gift-cards']"
+              >Gift Cards</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Community</a>
+            <a class="nav-link" [routerLink]="['/main/community']">Community</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Join the Team</a>

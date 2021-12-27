@@ -1,0 +1,40 @@
+.head_title {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+}
+.community-body {
+  padding: 10px 200px 40px 200px;
+}
+.input_select {
+  border: 1px solid #e2dada;
+  padding: 10px;
+  outline: none;
+  box-shadow: none;
+  border-radius: 6px;
+  width: 100%;
+  background-color: whitesmoke;
+}
+label {
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+.input_select_file {
+  padding: 10px;
+  outline: none;
+  box-shadow: none;
+  border-radius: 6px;
+  width: 100%;
+}
+.send_button {
+  font-size: 22px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+@media (max-width: 576px) {
+  .community-body {
+    padding: 10px 20px 20px 10px;
+  }
+}

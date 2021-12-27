@@ -51,3 +51,19 @@ input[type="radio"] {
 .font_size {
   font-size: 20px;
 }
+@media (max-width: 576px) {
+  .contact_details_card {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #dad5d5;
+    border: 1px solid #dad5d5;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .last_name {
+    margin-top: 10px;
+  }
+  .details_mobile {
+    text-align: center;
+  }
+}
