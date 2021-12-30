@@ -1,7 +1,42 @@
-<video controls loop width="100%" height="400px">
-  <source
-    src="../../../assets/videos/depositphotos_278869240-stock-video-woman-car-wash-does-full.mp4"
-  />
-</video>
+<div class="video-content">
+  <video controls autoplay class="carwah-video">
+    <source
+      src="../../../assets/videos/depositphotos_278869240-stock-video-woman-car-wash-does-full.mp4"
+      autoplay
+    />
+  </video>
+</div>
 
-<div><app-map></app-map></div>
+<div class="dashboard_content">
+  <a [routerLink]="['/main/unlimited']">
+    <img src="assets/images/club.png" class="image-club" />
+  </a>
+
+  <br />
+  <a [routerLink]="['/main/unlimited']">
+    <button class="join-btn">JOIN TODAY</button>
+  </a>
+</div>
+
+<div class="curved">
+  <h1 class="title-3">OPEN 7 DAYS A WEEK</h1>
+  <h3>7:30am - 7:00pm</h3>
+  <div style="padding: 40px"><app-map></app-map></div>
+</div>
+<div class="bottom-content">
+  <i class="far fa-comment-dots" style="font-size: 120px"></i>
+  <br />
+  <h1 class="title-free">FREE CAR WASH, ANYONE?</h1>
+
+  <h4>Join our text club & get a free wash today!</h4>
+  <br />
+  <button class="btn btn-danger signup-btn">Sign Up</button>
+  <br />
+  <br />
+  <p style="font-size: 10px">
+    By signing up, you agree to receive ongoing text message alerts from Camel
+    Express Car Wash. Consent not required for <br />purchase. Up to 4 msgs
+    p/mo. Reply STOP to cancel. Reply HELP for help. Msg & Data rates may apply.
+    Ts & Cs + Privacy <br />Policy @ www.optspot.com/tnc.
+  </p>
+</div>
