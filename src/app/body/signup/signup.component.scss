@@ -1,0 +1,78 @@
+.contact_title {
+  font-weight: bolder;
+  padding: 30px;
+  text-align: center;
+  background-color: #3a4341;
+  font-size: 50px;
+  color: #f8f8f8;
+}
+
+.join-now {
+  text-align: center;
+  padding: 40px;
+  border: 3px solid red;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.mobile-no {
+  margin: 0 auto;
+  padding: 20px;
+  width: 50%;
+}
+
+.input-number {
+  border: 0px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: none;
+  outline: none;
+}
+label {
+  font-size: large;
+}
+.input-radio {
+  float: right;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.join-now1 {
+  padding: 40px;
+  border: 3px solid red;
+  width: 50%;
+  margin: 0 auto;
+}
+.signup-text-data {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .join-now1 {
+    padding: 10px;
+    border: 3px solid red;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .join-now {
+    text-align: center;
+    padding: 10px;
+    border: 3px solid red;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .mobile-no {
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+  }
+  .signup-text-data {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
