@@ -42,6 +42,7 @@ export class ReviewPayComponent implements OnInit {
       password: this.userForm.value.password,
     };
 
+    this.router.navigateByUrl('/reservation/confirm');
     console.log(obj, 'rk obj');
   }
 }

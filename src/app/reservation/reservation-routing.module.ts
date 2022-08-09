@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { PurchaseCarwashComponent } from './purchase-carwash/purchase-carwash.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationlayoutComponent } from './reservationlayout/reservationlayout.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'user/details', component: UserInfoComponent },
       { path: 'review/pay', component: ReviewPayComponent },
       { path: 'confirm', component: ConfirmComponent },
+      { path: 'reservation-details', component: ReservationDetailsComponent },
     ],
   },
 ];

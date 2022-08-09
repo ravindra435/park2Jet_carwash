@@ -5,32 +5,12 @@
   background-color: #fff;
   color: #000;
 }
-.required {
-  color: red;
+.reservation-summary {
+  border: 0.8px solid #c0aeae;
 }
-.logo {
-  width: 210px;
-
-  margin: 0 45px 35px;
-  object-fit: contain;
+p {
+  margin-bottom: 2px;
 }
-.input_box {
-  box-shadow: none;
-  outline: none;
-}
-.user-title {
-  font-weight: bolder;
-  padding: 30px;
-  text-align: center;
-  background-color: #3a4341;
-  font-size: 40px;
-  color: #f8f8f8;
-}
-label {
-  font-weight: bold;
-  font-size: 18px;
-}
-
 .signin-btn {
   text-align: center;
   width: 200px;
@@ -41,26 +21,4 @@ label {
   padding: 10px;
   font-weight: bold;
   background-color: red;
-}
-
-.forgot-btn {
-  position: relative;
-  left: 75%;
-  top: -38px;
-  color: #517caf;
-}
-
-.user-fotter {
-  font-size: 12px;
-}
-
-.toast {
-  margin-top: 60px !important;
-}
-
-.toast-top-center {
-  top: 60px !important;
-}
-.sign_up {
-  cursor: pointer;
 }

@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationlayoutComponent } from './reservationlayout/reservationlayout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
     ReviewPayComponent,
     ReservationlayoutComponent,
     ConfirmComponent,
+    ReservationDetailsComponent,
   ],
   imports: [
     CommonModule,
