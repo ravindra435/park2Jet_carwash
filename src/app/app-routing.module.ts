@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./body/body.module').then((module) => module.BodyModule),
   },
+  {
+    path: 'reservation',
+    loadChildren: () =>
+      import('./reservation/reservation.module').then(
+        (module) => module.ReservationModule
+      ),
+  },
 ];
 
 @NgModule({

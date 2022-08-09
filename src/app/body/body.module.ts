@@ -14,8 +14,26 @@ import { ShopComponent } from './shop/shop.component';
 import { WashClubComponent } from './wash-club/wash-club.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
-  declarations: [DashboardComponent, MaindashboardComponent, ContactComponent, JoinTeamComponent, CommunityComponent, GiftCardsComponent, ShopComponent, WashClubComponent, SignupComponent],
-  imports: [CommonModule, BodyRoutingModule, SharedModule],
+  declarations: [
+    DashboardComponent,
+    MaindashboardComponent,
+    ContactComponent,
+    JoinTeamComponent,
+    CommunityComponent,
+    GiftCardsComponent,
+    ShopComponent,
+    WashClubComponent,
+    SignupComponent,
+  ],
+  imports: [
+    CommonModule,
+    BodyRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class BodyModule {}

@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 style="color: red; text-align: center">RESERVATIONS</h1>
+  <div style="width: 85%; margin: 0 auto">
+    <ul
+      style="
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        background-color: #3a4341;
+        padding: 0px;
+
+        text-align: center;
+      "
+    >
+      <li class="nav-listitem">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/reservation/purchase']"
+        >
+          Get A Quote</a
+        >
+      </li>
+      <li class="nav-listitem">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/reservation/user/details']"
+          >My Details</a
+        >
+      </li>
+      <li class="nav-listitem">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/reservation/review/pay']"
+          >Review & Pay</a
+        >
+      </li>
+      <li class="nav-listitem">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/reservation/confirm']"
+          >Confirm</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

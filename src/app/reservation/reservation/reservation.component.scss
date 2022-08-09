@@ -1,0 +1,10 @@
+.nav-listitem a {
+  color: #fff;
+  font-size: 20px;
+  padding: 6px 75px;
+  font-weight: bold;
+}
+
+.nav-listitem .nav-link:active {
+  background-color: red;
+}
