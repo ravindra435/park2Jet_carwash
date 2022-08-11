@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommonComponent } from './common/common.component';
 import { CommunityComponent } from './community/community.component';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -26,6 +27,9 @@ const routes: Routes = [
       { path: 'shop', component: ShopComponent },
       { path: 'unlimited', component: WashClubComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'PrivacyPolicy', component: CommonComponent },
+      { path: 'TermsConditions', component: CommonComponent },
+      { path: 'CancellationRefundPolicy', component: CommonComponent },
     ],
   },
 ];

@@ -15,6 +15,7 @@ import { WashClubComponent } from './wash-club/wash-club.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonComponent } from './common/common.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShopComponent,
     WashClubComponent,
     SignupComponent,
+    CommonComponent,
   ],
   imports: [
     CommonModule,

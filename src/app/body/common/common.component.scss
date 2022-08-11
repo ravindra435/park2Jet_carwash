@@ -1,0 +1,25 @@
+.common-head h1 {
+  text-align: center;
+  margin: 35px 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #e60011;
+  text-transform: uppercase;
+}
+.common-body-inner {
+  width: 80%;
+  margin: 0 auto;
+
+  border-top: 4px solid red;
+}
+.common-body-inner-card {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #d1d1d1;
+}
+p {
+  margin-bottom: 4px;
+}
+h6 {
+  margin-top: 8px;
+}

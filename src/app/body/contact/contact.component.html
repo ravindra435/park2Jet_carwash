@@ -1,6 +1,100 @@
-<div class="contact_title">CONTACT</div>
 <div class="row contatct-body">
-  <div class="container -fluid">
+  <div class="container mb-3">
+    <div>
+      <br />
+      <h1
+        style="
+          color: #e60011;
+          text-align: center;
+
+          font-weight: 700;
+        "
+      >
+        CONTACT US
+      </h1>
+      <br />
+    </div>
+    <div class="row" style="border-top: 5px solid #e60011">
+      <div class="col-md-4 contact-left text-center p-3">
+        <div class="image-mail">
+          <img src="assets/images/emaillogo.png" height="100" alt="emaillogo" />
+        </div>
+        <br />
+        <br />
+        <p style="color: #fff; padding: 15px; font-size: 18px">
+          if you have questions or just want to get in touch, use the form .we
+          look forward to hearing you!
+        </p>
+        <br /><br />
+      </div>
+      <div class="col-md-8" style="background-color: whitesmoke; padding: 30px">
+        <form [formGroup]="contactusForm">
+          <div>
+            <input
+              type=" text"
+              placeholder="First Name & Last Name"
+              class="form-control"
+              formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+              required
+            />
+
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+              <div *ngIf="f.name.errors.name">Please enter your name</div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="form-control"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <textarea
+              placeholder="Message...."
+              cols="30"
+              rows="10"
+              class="form-control"
+              formControlName="message"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+              required
+            ></textarea>
+            <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+              <div *ngIf="f.message.errors.required">message is required</div>
+              <div *ngIf="f.message.errors.message">
+                Please enter your message
+              </div>
+            </div>
+          </div>
+          <br />
+          <div style="text-align: center">
+            <button
+              class="btn btn-danger"
+              style="font-size: 20px; width: 100px; background-color: #e60011"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container -fluid">
     <div class="row mt-3">
       <div class="col-md-6 sub-title1 col-12">WE WANT TO HEAR FROM YOU</div>
       <div class="col-md-6 sub-title2 col-12">Camel Express Car Washes</div>
@@ -152,5 +246,5 @@
     <div class="container-fluid" style="padding: 50px"><app-map></app-map></div>
     <br />
     <br />
-  </div>
+  </div> -->
 </div>
