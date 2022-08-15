@@ -51,6 +51,7 @@ export class PurchaseCarwashComponent implements OnInit {
           if (this.selectedCarWash && this.selectedCarWash.washBookTypeId == item.washBookTypeId) {
             item.isChecked = true;
             item.noOfWashes = this.selectedCarWash.noOfWashes;
+            
           } else {
             item.isChecked = null;
             item.noOfWashes = null;
@@ -74,6 +75,13 @@ export class PurchaseCarwashComponent implements OnInit {
         this.selectedCarWash = carWash;
         item.isChecked = true;
         item.noOfWashes = noOfWashes;
+        if (noOfWashes != 'monthly') {
+          item.tax = (carWash.price * parseFloat(carWash.taxPercentage)) / 100;
+          item.totalFee = carWash.price + item.tax;
+        } else {
+          item.tax = (carWash.monthlyPrice * parseFloat(carWash.taxPercentage)) / 100;
+          item.totalFee = carWash.monthlyPrice + item.tax;
+        }
         sessionStorage.setItem("selectedCarWash", JSON.stringify(item));
       } else {
         item.isChecked = null;
