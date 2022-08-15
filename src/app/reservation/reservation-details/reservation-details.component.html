@@ -9,7 +9,7 @@
             <hr
               style="color: red; border-bottom: 2px solid red; opacity: inherit"
             />
-            <p><b>Booked On </b>: 8/02/2022</p>
+            <p><b>Booked On </b>: {{reservationInfo?.data?.info?.priceInfo?.paymentDate}}</p>
           </div>
           <div class="col-md-6 col-sm-6">
             <h3 style="color: red; font-size: 20px; text-align: center">
@@ -19,9 +19,9 @@
             <hr
               style="color: red; border-bottom: 2px solid red; opacity: inherit"
             />
-            <p><b>Name </b>: ravi</p>
-            <p><b>Email </b>: ravi@yopmail</p>
-            <p><b>Phone </b>: +1 (303) 558-9790</p>
+            <p><b>Name </b>: {{reservationInfo?.data?.info?.firstName}} {{reservationInfo?.data?.info?.lastName}}</p>
+            <p><b>Email </b>: {{reservationInfo?.data?.info?.email}}</p>
+            <p><b>Phone </b>: {{reservationInfo?.data?.info?.phone}}</p>
           </div>
           <div class="col-12 col-sm-12 col-md-12">
             <h3 style="color: red; font-size: 20px">Disclaimer& Notes</h3>
@@ -41,7 +41,7 @@
           </div>
           <div class="col-sm-4 col-md-4">
             <br />
-            <button class="btn butons-css">Cancel Reservation</button>
+            <button class="btn butons-css" (click)="cancelReservation()">Cancel Reservation</button>
           </div>
         </div>
       </div>
@@ -57,22 +57,22 @@
         <div class="reservation-summary p-3">
           <div class="row">
             <h4 style="color: red">Quote</h4>
-            <div class="col-6 col-sm-6 col-md-6">Washing</div>
+            <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>$10</b>
+              <b>${{reservationInfo?.data?.info?.priceInfo?.price}}</b>
             </div>
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>$4</b>
+              <b>${{reservationInfo?.data?.info?.priceInfo?.tax}}</b>
             </div>
             <div
               class="col-6 col-sm-6 col-md-6"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              $14
+              ${{reservationInfo?.data?.info?.priceInfo?.totalFee}}
             </div>
             <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 400">payNow $14</p>
+              <p style="font-size: 15px; font-weight: 400">Pay Now ${{reservationInfo?.data?.info?.priceInfo?.totalFee}}</p>
             </div>
           </div>
         </div>

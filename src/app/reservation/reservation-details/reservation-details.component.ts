@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservation-details.component.scss']
 })
 export class ReservationDetailsComponent implements OnInit {
+  
+  reservationInfo:any
 
-  constructor() { }
+  constructor() { 
+    this.reservationInfo = sessionStorage.getItem('reservationInfo') ? JSON.parse(sessionStorage.getItem('reservationInfo')) : null;
+
+  }
 
   ngOnInit(): void {
+
+
+  }
+
+
+  cancelReservation(){
+    
   }
 
 }
