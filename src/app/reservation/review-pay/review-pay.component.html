@@ -1,7 +1,7 @@
 <!-- <div class="user-title">User Details</div> -->
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
-    <div class="user-card p-4 row" style="width: 100%">
+    <div class="user-card p-4 pt-0 row" style="width: 100%">
       <h3 style="color: red; font-size: 20px">Review</h3>
       <hr style="color: red; border-bottom: 2px solid red; opacity: inherit" />
       <p>
@@ -10,7 +10,7 @@
         use the above navigation to return to a prior step. Card Details
       </p>
 
-      <div class="col-md-7 col-sm-7">
+      <div class="col-md-6 col-sm-6">
         <h3 style="color: red; font-size: 20px">Card Details</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -48,7 +48,7 @@
               </div>
             </div>
             <!-- Card Number -->
-            <div class="mt-3 row">
+            <div class="row">
               <div class="col-md-5 col-sm-5">
                 <label> Card Number <span class="required">*</span></label>
               </div>
@@ -63,7 +63,7 @@
             </div>
             <!-- Card Expiry Date & Year -->
 
-            <div class="mt-3 row">
+            <div class="row">
               <div class="col-md-5 col-sm-5">
                 <label
                   >Card Expiry Date & Year
@@ -80,7 +80,7 @@
               </div>
             </div>
             <!-- Card CVC -->
-            <div class="mt-3 row">
+            <div class="row">
               <div class="col-md-5 col-sm-5">
                 <label>Card CVC <span class="required">*</span></label>
               </div>
@@ -90,7 +90,7 @@
               </div>
             </div>
             <!-- Zip Code -->
-            <div class="mt-3 row">
+            <div class="row">
               <div class="col-md-5 col-sm-5">
                 <label>Zip Code <span class="required">*</span></label>
               </div>
@@ -114,7 +114,7 @@
                 <p>
                   <b
                     >I authorize Park 2 Jet Parking Denver to charge my card for
-                    the amount of ${{selectedCarWashType?.totalFee}}</b
+                    the amount of ${{ selectedCarWashType?.totalFee }}</b
                   >
                 </p>
                 <p>
@@ -140,9 +140,11 @@
           </div>
         </form>
       </div>
-      <div class="col-md-1 col-sm-1"></div>
+      <div class="col-md-2 col-sm-2"></div>
       <div class="col-md-4 col-sm-4">
-        <p class="text-center">RESERVATION SUMMERY</p>
+        <h4 class="text-center" style="color: red; font-size: 20px">
+          CARWASH SUMMERY
+        </h4>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
@@ -156,35 +158,40 @@
           </p>
           <p>
             <b>Car Wash</b> <br />
-            <span>{{selectedCarWashType.displayName}}</span>
+            <span>{{ selectedCarWashType.displayName }}</span>
           </p>
-         
 
           <div class="row">
-            <h4 style="color: red">Quote</h4>
+            <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{selectedCarWashType.price | number: "1.2-2"}}</b>
+              <b>${{ selectedCarWashType.price | number: "1.2-2" }}</b>
             </div>
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{selectedCarWashType?.tax | number: "1.2-2"}}</b>
+              <b>${{ selectedCarWashType?.tax | number: "1.2-2" }}</b>
             </div>
+            <hr />
             <div
-              class="col-6 col-sm-6 col-md-6"
+              class="col-5 col-sm-5 col-md-5"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              ${{selectedCarWashType?.totalFee | number: "1.2-2"}}
+              ${{ selectedCarWashType?.totalFee | number: "1.2-2" }}
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 600">Pay Now $ {{selectedCarWashType?.totalFee | number: "1.2-2"}}</p>
+            <div class="col-7 col-sm-7 col-md-7 text-center mt-2">
+              <p style="font-size: 15px; font-weight: 600">
+                Pay Now $ {{ selectedCarWashType?.totalFee | number: "1.2-2" }}
+              </p>
             </div>
+            <hr />
           </div>
           <h5 style="color: red">User Details</h5>
-          <span> {{personalInfo?.firstName}} {{personalInfo?.lastName}} </span><br />
+          <span>
+            {{ personalInfo?.firstName }} {{ personalInfo?.lastName }} </span
+          ><br />
 
-          <span>{{personalInfo?.email}}</span> <br />
-          <span>{{personalInfo.phone}}</span>
+          <span>{{ personalInfo?.email }}</span> <br />
+          <span>{{ personalInfo.phone }}</span>
         </div>
       </div>
     </div>

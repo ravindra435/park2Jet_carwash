@@ -1,9 +1,12 @@
 <!-- <div class="user-title">User Details</div> -->
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
-    <div class="user-card p-4 row" style="width: 100%">
-      <div class="col-md-7 col-sm-7 col-12">
-        <h3 style="color: red; font-size: 20px">MY DETAILS</h3>
+    <div class="user-card p-4 pt-0 row" style="width: 100%">
+      <h3 style="color: red; font-size: 20px">My Details</h3>
+
+      <hr style="color: red; border-bottom: 2px solid red; opacity: inherit" />
+      <div class="col-md-6 col-sm-6 col-12">
+        <h3 style="color: red; font-size: 20px">Personal Details</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
@@ -128,6 +131,7 @@
                   class="form-control input_box"
                   placeholder="Mobile"
                   formControlName="phone"
+                  [maxlength]="10"
                   [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
                   required
                 />
@@ -138,7 +142,7 @@
               </div>
             </div>
             <br />
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-1 col-sm-1 col-1">
                 <div class="form-check check-box">
                   <input
@@ -159,7 +163,7 @@
                   >
                 </p>
               </div>
-            </div>
+            </div> -->
 
             <br />
             <div style="display: flex; justify-content: center">
@@ -174,9 +178,11 @@
           </div>
         </form>
       </div>
-      <div class="col-md-1 col-sm-1"></div>
+      <div class="col-md-2 col-sm-2"></div>
       <div class="col-md-4 col-sm-4 col-12">
-        <p class="text-center">RESERVATION SUMMERY</p>
+        <h4 class="text-center" style="color: red; font-size: 20px">
+          CARWASH SUMMERY
+        </h4>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
@@ -191,27 +197,32 @@
           </p>
           <p>
             <b>Car Wash</b> <br />
-            <span>{{selectedCarWashType?.displayName}}</span>
+            <span>{{ selectedCarWashType?.displayName }}</span>
           </p>
-         
+
           <div class="row">
-            <h4 style="color: red">Quote</h4>
+            <hr />
+            <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{selectedCarWashType?.price | number: "1.2-2"}}</b>
+              <b>${{ selectedCarWashType?.price | number: "1.2-2" }}</b>
             </div>
+
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{selectedCarWashType?.tax | number: "1.2-2"}}</b>
+              <b>${{ selectedCarWashType?.tax | number: "1.2-2" }}</b>
             </div>
+            <hr />
             <div
-              class="col-6 col-sm-6 col-md-6"
+              class="col-5 col-sm-5 col-md-5"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              ${{selectedCarWashType?.totalFee | number: "1.2-2"}}
+              ${{ selectedCarWashType?.totalFee | number: "1.2-2" }}
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 600">Pay Now $ {{selectedCarWashType?.totalFee | number: "1.2-2"}}</p>
+            <div class="col-7 col-sm-7 col-md-7 text-center mt-2">
+              <p style="font-size: 15px; font-weight: 600">
+                Pay Now $ {{ selectedCarWashType?.totalFee | number: "1.2-2" }}
+              </p>
             </div>
           </div>
         </div>
