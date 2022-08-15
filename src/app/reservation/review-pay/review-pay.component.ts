@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/app/shared/api.service';
+import Swal from 'sweetalert2';
+declare var stripe: any;
 
 @Component({
   selector: 'app-review-pay',
@@ -8,41 +12,165 @@ import { Router } from '@angular/router';
   styleUrls: ['./review-pay.component.scss'],
 })
 export class ReviewPayComponent implements OnInit {
-  userForm: FormGroup;
+  cardDetailsForm: FormGroup;
   submitted = false;
+  cardHandler = this.onChange.bind(this);
+  cardError: string;
+  card: any;
+  bookReservationDisabled: boolean;
+  selectedCarWashType : any;
+  personalInfo:any;
+  /* payment */
+  @ViewChild('cardInfo') cardInfo: ElementRef;
+  @ViewChild('cardNumber') cardNumber: ElementRef;
+  @ViewChild('cardExpiry') cardExpiry: ElementRef;
+  @ViewChild('cardCvc') cardCvc: ElementRef;
+  @ViewChild('postalCode') postalCode: ElementRef;
+  @ViewChild('cardName') cardName: ElementRef;
+  @ViewChild('submitButton') submitButton: ElementRef;
+
   constructor(
     private fb: FormBuilder,
-
-    private router: Router
+    private cd: ChangeDetectorRef,
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private apiService:ApiService,
+    private renderer: Renderer2,
   ) {
-    this.userForm = this.fb.group({
-      name: ['', Validators.required],
-      cardNumber: ['', Validators.required],
-      zip: ['', Validators.required],
-      Date: ['', Validators.required],
-      cvcNo: ['', Validators.required],
+    this.selectedCarWashType = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
+    this.personalInfo = sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null;
+    this.cardDetailsForm = this.fb.group({
+      nameOnCard: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   get f() {
-    return this.userForm.controls;
+    return this.cardDetailsForm.controls;
   }
 
-  onSubmit() {
-    this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.userForm.invalid) {
-      return;
+
+  /* Payment Logic */
+
+  ngOnDestroy() {
+    if (this.card) {
+      // We remove event listener here to keep memory clean
+      this.card.removeEventListener('change', this.cardHandler);
+      this.card.destroy();
     }
-    let obj = {
-      email: this.userForm.value?.email,
-      password: this.userForm.value.password,
-    };
-
-    this.router.navigateByUrl('/reservation/confirm');
-    console.log(obj, 'rk obj');
   }
+  ngAfterViewInit() {
+    this.initiateCardElement();
+  }
+  initiateCardElement() {
+
+
+    var elements = stripe.elements();
+    this.card = elements.create('cardNumber');
+    this.card.mount('#card-number');
+    this.card = elements.create('cardExpiry');
+    this.card.mount('#card-expiry');
+    this.card = elements.create('cardCvc');
+    this.card.mount('#card-cvc');
+    this.card = elements.create('postalCode');
+    this.card.mount('#postalCode');
+    this.card.addEventListener('change', this.cardHandler);
+  }
+
+  onChange({ error }) {
+    if (error) {
+      this.cardError = error.message;
+    } else {
+      this.cardError = null;
+    }
+    this.cd.detectChanges();
+  }
+
+  async createStripeToken() {
+    this.submitButton.nativeElement.disabled = true;
+    this.bookReservationDisabled = true;
+    this.submitted = true;
+    this.spinner.show();
+    const { token, error } = await stripe.createToken(this.card);
+
+    if (token) {
+      this.spinner.show();
+      this.onSuccess(token);
+    } else {
+      this.submitButton.nativeElement.disabled = false;
+      this.bookReservationDisabled = false;
+      this.spinner.hide();
+      this.onError(error);
+    }
+  }
+  onSuccess(token) {
+    const req = {
+      paymentToken: token.id,
+      washType:this.selectedCarWashType.washType,
+      numberOfWashes:this.selectedCarWashType.noOfWashes != 'monthly' ? this.selectedCarWashType.noOfWashes : null,
+      package : this.selectedCarWashType.noOfWashes == 'monthly' ?  this.selectedCarWashType.noOfWashes  : null,
+      firstName:this.personalInfo.firstName,
+      lastName:this.personalInfo.lastName,
+      email:this.personalInfo.email,
+      phone : this.personalInfo.phone
+    };
+    this.apiService.bookReservation(req).subscribe((resp) => {
+      this.spinner.hide();
+      if (resp.statusCode === 200) {
+        this.spinner.hide();
+        sessionStorage.removeItem('selectedCarWash');
+        sessionStorage.removeItem('userInfo');
+        sessionStorage.setItem('reservationInfo' , JSON.stringify(resp));
+        this.router.navigateByUrl("/reservation/confirm")
+        // Reservation Email Trigger
+
+        // this.apiServices
+        //   .reservationEmail({ reservationId: this.reservation.reservationId })
+        //   .subscribe((res) => {});
+      } else {
+        this.cardDetailsForm.reset();
+        this.renderer.setProperty(
+          this.cardNumber.nativeElement,
+          'innerText',
+          ''
+        );
+
+        this.renderer.setProperty(
+          this.cardExpiry.nativeElement,
+          'innerText',
+          ''
+        );
+        this.renderer.setProperty(this.cardCvc.nativeElement, 'innerText', '');
+        this.renderer.setProperty(
+          this.postalCode.nativeElement,
+          'innerText',
+          ''
+        );
+        this.submitButton.nativeElement.disabled = false;
+        this.bookReservationDisabled = false;
+        this.initiateCardElement();
+        Swal.fire({
+          icon: 'error',
+          title: 'Please try again later',
+          text: `${resp.message}`,
+        }).then((res) => {
+          // this.router.navigateByUrl("")
+        });
+      }
+    }, () =>{
+      this.spinner.hide();
+      this.submitButton.nativeElement.disabled = false;
+      this.bookReservationDisabled = false;
+    });
+  }
+  onError(error) {
+    if (error.message.includes('postal')) {
+      this.cardError = 'Your Zip code is incomplete.';
+    } else {
+      this.cardError = error.message;
+    }
+  }
+
 }

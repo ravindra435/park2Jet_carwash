@@ -7,7 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./confirm.component.scss'],
 })
 export class ConfirmComponent implements OnInit {
-  constructor(private router: Router) {}
+
+  reservationInfo : any;
+
+  constructor(private router: Router) {
+
+    this.reservationInfo = sessionStorage.getItem('reservationInfo') ? JSON.parse(sessionStorage.getItem('reservationInfo')) : null;
+
+  }
 
   ngOnInit(): void {}
   viewDetails() {

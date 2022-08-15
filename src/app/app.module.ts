@@ -10,6 +10,10 @@ import { BodyModule } from './body/body.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AgmCoreModule } from '@agm/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './shared/api.service';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,8 +31,11 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBiTuyfeiLXpcg4s4vlscRanQ47uIHGuFk',
     }),
+    HttpClientModule,
+    SweetAlert2Module.forRoot(),
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

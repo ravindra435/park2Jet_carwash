@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationlayoutComponent } from './reservationlayout/reservationlayout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    SweetAlert2Module,
+    NgxSpinnerModule,
   ],
 })
 export class ReservationModule {}
