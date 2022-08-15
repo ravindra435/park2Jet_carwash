@@ -2,8 +2,7 @@
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
     <div class="user-card p-4 row" style="width: 100%">
-      <div class="col-md-1 col-sm-1"></div>
-      <div class="col-md-6 col-sm-6">
+      <div class="col-md-7 col-sm-7 col-12">
         <h3 style="color: red; font-size: 20px">MY DETAILS</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -29,8 +28,13 @@
                 />
               </div>
 
-              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors.required">First name is required</div>
+              <div
+                *ngIf="submitted && f.firstName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.firstName.errors.required">
+                  First name is required
+                </div>
               </div>
             </div>
             <div class="mt-3 row">
@@ -129,34 +133,34 @@
                 />
               </div>
 
-              <div
-                *ngIf="submitted && f.phone.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="f.phone.errors.required">
-                  phone No is required
-                </div>
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">phone No is required</div>
               </div>
             </div>
             <br />
-            <div class="col-md-12">
-              <div class="form-check check-box">
-                <p class="form-check-label" for="defaultCheck2">
-                  <b>
-                    After my stay I would like a copy of my
-                    receipt sent to my email</b
-                  >
+            <div class="row">
+              <div class="col-md-1 col-sm-1 col-1">
+                <div class="form-check check-box">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     value=""
                     id="defaultCheck2"
                     checked
-                    style="margin: 0px; margin-left: 4px"
+                    style="margin-top: 4px; margin-left: 4px"
                   />
+                </div>
+              </div>
+              <div class="col-md-11 col-sm-11 col-11">
+                <p class="form-check-label" for="defaultCheck2">
+                  <b>
+                    &nbsp; After my stay I would like a copy of my receipt sent
+                    to my email</b
+                  >
                 </p>
               </div>
             </div>
+
             <br />
             <div style="display: flex; justify-content: center">
               <button
@@ -170,12 +174,51 @@
           </div>
         </form>
       </div>
-      <div class="col-md-5 col-sm-5 text-center">
-        <p>RESERVATION SUMMERY</p>
+      <div class="col-md-1 col-sm-1"></div>
+      <div class="col-md-4 col-sm-4 col-12">
+        <p class="text-center">RESERVATION SUMMERY</p>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
-       
+
+        <div class="reservation-summary p-3">
+          <h5><b>Express carwash</b></h5>
+          <p>
+            Location : 18121 E 81st Ave, <br />
+            Commerce City, CO 80022
+            <br />
+            service@expresscarcaredenver.com
+          </p>
+          <p>
+            <b>Car Wash</b> <br />
+            <span>Standard</span>
+          </p>
+          <p>
+            <b> Booked On</b> <br />
+            <span>Monday, August 15, 2022 08:00 am</span>
+          </p>
+
+          <div class="row">
+            <h4 style="color: red">Quote</h4>
+            <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
+            <div class="col-6 col-sm-6 col-md-6 text-center">
+              <b>$10</b>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
+            <div class="col-6 col-sm-6 col-md-6 text-center">
+              <b>$10</b>
+            </div>
+            <div
+              class="col-6 col-sm-6 col-md-6"
+              style="font-size: 25px; color: red; font-weight: bold"
+            >
+              $10
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
+              <p style="font-size: 15px; font-weight: 600">Pay Now $ 10</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

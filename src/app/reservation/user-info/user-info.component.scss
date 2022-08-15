@@ -32,7 +32,10 @@ label {
   font-weight: bold;
   font-size: 18px;
 }
-
+.reservation-summary {
+  border: 0.8px solid #c0aeae;
+  word-break: break-all;
+}
 .signin-btn {
   text-align: center;
   width: 300px;

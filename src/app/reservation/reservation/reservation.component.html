@@ -12,38 +12,23 @@
         text-align: center;
       "
     >
-      <li class="nav-listitem">
-        <a
-          class="nav-link"
-          routerLinkActive="active"
-          [routerLink]="['/reservation/purchase']"
-        >
+      <li class="nav-listitem" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/reservation/purchase']">
           Select CarWash</a
         >
       </li>
-      <li class="nav-listitem">
-        <a
-          class="nav-link"
-          routerLinkActive="active"
-          [routerLink]="['/reservation/user/details']"
+      <li class="nav-listitem" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/reservation/user/details']"
           >My Details</a
         >
       </li>
-      <li class="nav-listitem">
-        <a
-          class="nav-link"
-          routerLinkActive="active"
-          [routerLink]="['/reservation/review/pay']"
+      <li class="nav-listitem" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/reservation/review/pay']"
           >Review & Pay</a
         >
       </li>
-      <li class="nav-listitem">
-        <a
-          class="nav-link"
-          routerLinkActive="active"
-          [routerLink]="['/reservation/confirm']"
-          >Confirm</a
-        >
+      <li class="nav-listitem" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/reservation/confirm']">Confirm</a>
       </li>
     </ul>
   </div>

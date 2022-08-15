@@ -30,6 +30,10 @@ label {
   font-weight: bold;
   font-size: 18px;
 }
+.reservation-summary {
+  border: 0.8px solid #c0aeae;
+  word-break: break-all;
+}
 
 .booking-btn {
   text-align: center;
@@ -107,4 +111,3 @@ label {
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
-

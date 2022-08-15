@@ -1,6 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+
 body {
-  line-height: 1.75;
-  font-family: "Raleway", sans-serif;
+  font-family: "Muli", "Arial Bold", sans-serif !important;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: "Muli", sans-serif !important;
+}
+
+// select {
+//   font-family: "Muli", sans-serif !important;
+// }
+
+// button {
+//   font-family: "Muli", sans-serif !important;
+// }
+// button:focus {
+//   border: none !important;
+// }
+// .form-control:focus {
+//   border: solid 1px #ccc !important;
+//   box-shadow: none !important;
+// }
+
+// h5 {
+//   font-family: "Muli", sans-serif !important;
+// }
+
+// .container {
+//   max-width: 1200px !important;
+//   margin: auto;
+// }
+
+h2 {
+  font-family: "Muli", sans-serif !important;
+}
+
+h3 {
+  font-family: "Muli", sans-serif !important;
+}
+
+h4 {
+  font-family: "Muli", sans-serif !important;
+}
+
+.swal2-title {
+  font-size: 20px !important;
+}
+.swal2-styled.swal2-confirm {
+  background-color: #e60011 !important;
+  font-size: 12px !important;
+}
+.swal2-icon.swal2-error {
+  margin: 0px !important;
+}
+.swal2-styled.swal2-cancel {
+  font-size: 12px !important;
+}
+.swal2-icon.swal2-warning {
+  margin: 0px !important;
+  font-size: 11px;
+}
+
+.swal2-icon.swal2-error {
+  border-color: #e60011;
+  color: #e60011;
 }
