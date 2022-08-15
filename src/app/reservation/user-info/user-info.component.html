@@ -191,31 +191,27 @@
           </p>
           <p>
             <b>Car Wash</b> <br />
-            <span>Standard</span>
+            <span>{{selectedCarWashType?.displayName}}</span>
           </p>
-          <p>
-            <b> Booked On</b> <br />
-            <span>Monday, August 15, 2022 08:00 am</span>
-          </p>
-
+         
           <div class="row">
             <h4 style="color: red">Quote</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>$10</b>
+              <b>${{selectedCarWashType?.price | number: "1.2-2"}}</b>
             </div>
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>$10</b>
+              <b>${{selectedCarWashType?.tax | number: "1.2-2"}}</b>
             </div>
             <div
               class="col-6 col-sm-6 col-md-6"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              $10
+              ${{selectedCarWashType?.totalFee | number: "1.2-2"}}
             </div>
             <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 600">Pay Now $ 10</p>
+              <p style="font-size: 15px; font-weight: 600">Pay Now $ {{selectedCarWashType?.totalFee | number: "1.2-2"}}</p>
             </div>
           </div>
         </div>
