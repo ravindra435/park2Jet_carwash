@@ -37,6 +37,8 @@ export class ReviewPayComponent implements OnInit {
     private apiService:ApiService,
     private renderer: Renderer2,
   ) {
+    sessionStorage.setItem('currentStepper' , "3");
+
     this.selectedCarWashType = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
     this.personalInfo = sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null;
     this.cardDetailsForm = this.fb.group({
@@ -118,6 +120,8 @@ export class ReviewPayComponent implements OnInit {
     };
     this.apiService.bookReservation(req).subscribe((resp) => {
       this.spinner.hide();
+      sessionStorage.setItem('stepper' ,  "3");
+
       if (resp.statusCode === 200) {
         this.spinner.hide();
         sessionStorage.removeItem('selectedCarWash');
@@ -125,10 +129,12 @@ export class ReviewPayComponent implements OnInit {
         sessionStorage.setItem('reservationInfo' , JSON.stringify(resp));
         this.router.navigateByUrl("/reservation/confirm")
         // Reservation Email Trigger
-
-        // this.apiServices
-        //   .reservationEmail({ reservationId: this.reservation.reservationId })
-        //   .subscribe((res) => {});
+        setTimeout(() => {
+          this.apiService
+          .reservationEmail({ code: resp.reservationCodes[0].code })
+          .subscribe((res) => {});
+        }, 10);
+        
       } else {
         this.cardDetailsForm.reset();
         this.renderer.setProperty(

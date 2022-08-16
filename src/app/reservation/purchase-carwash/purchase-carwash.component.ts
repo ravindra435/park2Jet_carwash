@@ -26,6 +26,8 @@ export class PurchaseCarwashComponent implements OnInit {
     this.selectedCarWash = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
     this.fetchCarwashTypes();
 
+    sessionStorage.setItem('currentStepper' , "1");
+
 
   }
   // navigat to userDetails form
@@ -69,16 +71,17 @@ export class PurchaseCarwashComponent implements OnInit {
 
   // selected washType save to local storge 
   selectCarWashType(carWash: any, noOfWashes: string, event: any) {
-
+    sessionStorage.setItem('stepper' ,  "1");
     this.carWashTypes$.forEach(item => {
       if (item.washBookTypeId == carWash.washBookTypeId) {
         this.selectedCarWash = carWash;
         item.isChecked = true;
-        item.noOfWashes = noOfWashes;
         if (noOfWashes != 'monthly') {
-          item.tax = (carWash.price * parseFloat(carWash.taxPercentage)) / 100;
-          item.totalFee = carWash.price + item.tax;
+          item.noOfWashes = Number(noOfWashes);
+          item.tax = ((carWash.price * Number(noOfWashes)) * parseFloat(carWash.taxPercentage)) / 100;
+          item.totalFee = (carWash.price *  Number(noOfWashes)) + item.tax;
         } else {
+          item.noOfWashes = noOfWashes;
           item.tax = (carWash.monthlyPrice * parseFloat(carWash.taxPercentage)) / 100;
           item.totalFee = carWash.monthlyPrice + item.tax;
         }

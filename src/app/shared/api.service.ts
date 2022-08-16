@@ -35,6 +35,15 @@ export class ApiService {
 
   }
 
+  public reservationEmail(data:any): Observable<any>  {
+    try {
+      return this.http.post(this.apiBaseUrl + 'carWashReservation/email',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+
+  }
 
 
 
