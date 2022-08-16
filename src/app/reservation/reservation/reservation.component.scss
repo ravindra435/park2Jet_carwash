@@ -1,8 +1,12 @@
 .nav-listitem a {
   color: #fff;
   font-size: 20px;
-  padding: 6px 75px;
-  font-weight: bold;
+  padding: 0px 83px 0px 80px;
+  position: relative;
+  top: 6px;
+}
+.nav-listitem {
+  height: 45px;
 }
 
 .active {
@@ -13,6 +17,6 @@
   cursor: pointer;
 }
 
-.hoverClass{
- cursor: pointer;
+.hoverClass {
+  cursor: pointer;
 }
