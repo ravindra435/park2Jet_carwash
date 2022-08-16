@@ -16,6 +16,8 @@ export class UserInfoComponent implements OnInit {
 
     private router: Router
   ) {
+    sessionStorage.setItem('currentStepper' , "2");
+
      this.selectedCarWashType = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
      this.loadUserForm();
      this.patchUserForm()
@@ -75,6 +77,7 @@ export class UserInfoComponent implements OnInit {
     if (this.userForm.invalid) {
       return;
     }
+    sessionStorage.setItem('stepper' ,  "2");
     sessionStorage.setItem('userInfo' , JSON.stringify(this.userForm.value));
     this.router.navigateByUrl('/reservation/review/pay');
   }
