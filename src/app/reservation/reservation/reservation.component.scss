@@ -8,3 +8,11 @@
 .active {
   background-color: red;
 }
+.activeClass {
+  background-color: red !important;
+  cursor: pointer;
+}
+
+.hoverClass{
+ cursor: pointer;
+}

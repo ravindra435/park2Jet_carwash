@@ -19,7 +19,11 @@ export class PurchaseCarwashComponent implements OnInit {
     private router: Router, 
     private apiService: ApiService,
     private spinner:NgxSpinnerService
-    ) { }
+    ) { 
+      this.apiService.stepper.emit("1");
+      sessionStorage.removeItem("reservationInfo");
+
+    }
 
   ngOnInit(): void {
 
@@ -34,6 +38,7 @@ export class PurchaseCarwashComponent implements OnInit {
   navigateTouser() {
     if (this.selectedCarWash) {
       this.router.navigateByUrl('reservation/user/details');
+      this.apiService.stepper.emit("2");
     } else {
       Swal.fire({
         title: 'Please select carWash Type',
@@ -77,13 +82,15 @@ export class PurchaseCarwashComponent implements OnInit {
         this.selectedCarWash = carWash;
         item.isChecked = true;
         if (noOfWashes != 'monthly') {
+          item.carWashPrice = carWash.price * Number(noOfWashes);
           item.noOfWashes = Number(noOfWashes);
           item.tax = ((carWash.price * Number(noOfWashes)) * parseFloat(carWash.taxPercentage)) / 100;
-          item.totalFee = (carWash.price *  Number(noOfWashes)) + item.tax;
+          item.totalFee = (carWash.carWashPrice *  Number(noOfWashes)) + item.tax;
         } else {
+          item.carWashPrice = carWash.monthlyPrice;
           item.noOfWashes = noOfWashes;
           item.tax = (carWash.monthlyPrice * parseFloat(carWash.taxPercentage)) / 100;
-          item.totalFee = carWash.monthlyPrice + item.tax;
+          item.totalFee = Number(carWash.carWashPrice) + item.tax;
         }
         sessionStorage.setItem("selectedCarWash", JSON.stringify(item));
       } else {
