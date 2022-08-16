@@ -2,7 +2,7 @@
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
     <div class="user-card p-4 row" style="width: 100%">
-      <div class="col-md-8 col-sm-8">
+      <div class="col-md-8 col-sm-8 mt-1">
         <h3 style="color: red; font-size: 20px">Confirmation</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -67,18 +67,25 @@
           <div class="row">
             <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
-            <div class="col-6 col-sm-6 col-md-6 text-center" *ngIf="reservationInfo?.data?.info?.noOfWashes">
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              *ngIf="reservationInfo?.data?.info?.noOfWashes"
+            >
               <b
                 >${{
-                  reservationInfo?.data?.info?.priceInfo?.price * reservationInfo?.data?.info?.priceInfo?.noOfWashes 
+                  reservationInfo?.data?.info?.priceInfo?.price *
+                    reservationInfo?.data?.info?.priceInfo?.noOfWashes
                     | number: "1.2-2"
                 }}</b
               >
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center" *ngIf="!reservationInfo?.data?.info?.noOfWashes">
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              *ngIf="!reservationInfo?.data?.info?.noOfWashes"
+            >
               <b
                 >${{
-                  reservationInfo?.data?.info?.priceInfo?.monthlyPrice 
+                  reservationInfo?.data?.info?.priceInfo?.monthlyPrice
                     | number: "1.2-2"
                 }}</b
               >

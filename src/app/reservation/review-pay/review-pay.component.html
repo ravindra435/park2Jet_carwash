@@ -10,7 +10,7 @@
         use the above navigation to return to a prior step. Card Details
       </p>
 
-      <div class="col-md-6 col-sm-6">
+      <div class="col-md-7 col-sm-7">
         <h3 style="color: red; font-size: 20px">Card Details</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -24,10 +24,10 @@
             <!-- Card Name -->
             <div class="row">
               <div class="col-md-5 col-sm-5">
-                <label> Name on Card <span class="required">*</span></label>
+                <label> Name on Card </label>
               </div>
 
-              <div class="col-md-7 col-sm-7">
+              <div class="col-md-7 col-sm-7 relative">
                 <input
                   type="text"
                   class="form-control input_box"
@@ -36,6 +36,7 @@
                   [ngClass]="{ 'is-invalid': submitted && f.nameOnCard.errors }"
                   required
                 />
+                <span class="required">*</span>
               </div>
 
               <div
@@ -48,69 +49,71 @@
               </div>
             </div>
             <!-- Card Number -->
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-md-5 col-sm-5">
-                <label> Card Number <span class="required">*</span></label>
+                <label> Card Number </label>
               </div>
 
-              <div class="col-md-7 col-sm-7">
+              <div class="col-md-7 col-sm-7 relative">
                 <div
                   class="customCardStyles"
                   id="card-number"
                   #cardNumber
                 ></div>
+                <span class="required">*</span>
               </div>
             </div>
             <!-- Card Expiry Date & Year -->
 
             <div class="row">
               <div class="col-md-5 col-sm-5">
-                <label
-                  >Card Expiry Date & Year
-                  <span class="required">*</span></label
-                >
+                <label>Card Expiry Date & Year </label>
               </div>
 
-              <div class="col-md-7 col-sm-7">
+              <div class="col-md-7 col-sm-7 relative">
                 <div
                   class="customCardStyles"
                   id="card-expiry"
                   #cardExpiry
                 ></div>
+                <span class="required">*</span>
               </div>
             </div>
             <!-- Card CVC -->
             <div class="row">
               <div class="col-md-5 col-sm-5">
-                <label>Card CVC <span class="required">*</span></label>
+                <label>Card CVC </label>
               </div>
 
-              <div class="col-md-7 col-sm-7">
+              <div class="col-md-7 col-sm-7 relative">
                 <div class="customCardStyles" id="card-cvc" #cardCvc></div>
+                <span class="required">*</span>
               </div>
             </div>
             <!-- Zip Code -->
             <div class="row">
               <div class="col-md-5 col-sm-5">
-                <label>Zip Code <span class="required">*</span></label>
+                <label>Zip Code </label>
               </div>
 
-              <div class="col-md-7 col-sm-7">
+              <div class="col-md-7 col-sm-7 relative">
                 <div class="customCardStyles" id="postalCode" #postalCode></div>
+                <span class="required">*</span>
               </div>
             </div>
 
             <br />
             <br />
             {{ cardError }}
-           
 
             <div class="col-md-12 resp-col">
               <div class="autorized">
                 <p>
                   <b
-                    >I authorize Express Car Care Denver to charge my card for
-                    the amount of ${{selectedCarWashType?.totalFee | number: "1.2-2"}}</b
+                    >I authorize Express Car Wash Denver to charge my card for
+                    the amount of ${{
+                      selectedCarWashType?.totalFee | number: "1.2-2"
+                    }}</b
                   >
                 </p>
                 <p>
@@ -136,7 +139,7 @@
           </div>
         </form>
       </div>
-      <div class="col-md-2 col-sm-2"></div>
+      <div class="col-md-1 col-sm-1"></div>
       <div class="col-md-4 col-sm-4">
         <h4 class="text-center" style="color: red; font-size: 20px">
           CARWASH SUMMERY
@@ -161,9 +164,9 @@
             <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{ selectedCarWashType.carWashPrice | number: "1.2-2" }}</b>
+              <b>${{ selectedCarWashType?.carWashPrice | number: "1.2-2" }}</b>
             </div>
-            <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
+            <div class="col-6 col-sm-6 col-md-6">Taxes</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
               <b>${{ selectedCarWashType?.tax | number: "1.2-2" }}</b>
             </div>

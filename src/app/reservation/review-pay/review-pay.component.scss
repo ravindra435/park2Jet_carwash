@@ -7,12 +7,22 @@
 }
 .required {
   color: red;
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  font-size: 30px;
+  font-weight: bold;
 }
 .logo {
   width: 210px;
 
   margin: 0 45px 35px;
   object-fit: contain;
+}
+label {
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
 }
 .input_box {
   box-shadow: none;
@@ -26,10 +36,7 @@
   font-size: 40px;
   color: #f8f8f8;
 }
-label {
-  font-weight: bold;
-  font-size: 18px;
-}
+
 .reservation-summary {
   border: 0.8px solid #c0aeae;
   word-break: break-all;
@@ -73,17 +80,7 @@ label {
   border: solid 1px #ccc !important;
   margin-bottom: 10px !important;
 }
-.checkout {
-  label {
-    margin: 10px 0px 20px 0px !important;
-  }
 
-  .autorized {
-    p {
-      margin-bottom: 15px;
-    }
-  }
-}
 .StripeElement {
   box-sizing: border-box;
 

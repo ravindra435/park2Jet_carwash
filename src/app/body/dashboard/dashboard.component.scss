@@ -55,30 +55,30 @@
   overflow: hidden;
 }
 
-.curved:after {
-  content: "";
-  position: absolute;
-  height: 180px;
-  left: -5%;
-  right: -5%;
-  border-radius: 50%;
-  bottom: -84px;
-  background: white;
+// .curved:after {
+//   content: "";
+//   position: absolute;
+//   height: 180px;
+//   left: -5%;
+//   right: -5%;
+//   border-radius: 50%;
+//   bottom: -84px;
+//   background: white;
 
-  z-index: 2;
-}
+//   z-index: 2;
+// }
 
-.curved:before {
-  content: "";
-  position: absolute;
-  height: 180px;
-  left: -5%;
-  right: -5%;
-  border-radius: 50%;
-  bottom: -84px;
-  background: #3a4341;
-  z-index: 1;
-}
+// .curved:before {
+//   content: "";
+//   position: absolute;
+//   height: 180px;
+//   left: -5%;
+//   right: -5%;
+//   border-radius: 50%;
+//   bottom: -84px;
+//   background: #3a4341;
+//   z-index: 1;
+// }
 .bottom-content {
   text-align: center;
   height: 430px;

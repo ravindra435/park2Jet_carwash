@@ -1,42 +1,44 @@
 <div class="footer-body">
   <div class="footer-inner">
     <div class="row">
-      <div class="col-md-4 text-center col-12 mob-view">
+      <div class="col-md-3 text-center col-sm-3 col-12 mob-view">
         <div class="img_logo_footer">
-          <a routerLink="">
+          <a routerLink="" (click)="gotoTop()">
             <img
               src="assets/images/Logo_final.jpg"
               alt="logo"
-              height="65px"
-              width="250px"
+              height="70"
+              width="150"
             />
           </a>
         </div>
       </div>
       <div class="col-md-3 col-12 mob-view">
-        <a [routerLink]="['/main/PrivacyPolicy']">
+        <a [routerLink]="['/main/PrivacyPolicy']" (click)="gotoTop()">
           <h5>Privacy Policy</h5>
         </a>
-        <a [routerLink]="['/main/TermsConditions']">
+        <a [routerLink]="['/main/TermsConditions']" (click)="gotoTop()">
           <h5>Terms & Conditions</h5>
         </a>
-        <a [routerLink]="['/main/CancellationRefundPolicy']">
+        <a
+          [routerLink]="['/main/CancellationRefundPolicy']"
+          (click)="gotoTop()"
+        >
           <h5>Cancellation & Refund Policy</h5>
         </a>
       </div>
       <div class="col-md-2 col-12 mob-view">
-        <a [routerLink]="['/main/contact']">
+        <a [routerLink]="['/main/contact']" (click)="gotoTop()">
           <h5>Contact Us</h5>
         </a>
 
-        <a>
+        <a [routerLink]="['/main/AboutUs']" (click)="gotoTop()">
           <h5>About Us</h5>
         </a>
-        <p>Opens Daily</p>
-        <p>7:00 am - 7:00 pm</p>
-        <p></p>
+        <h5>Opens Daily</h5>
+        <h5>7:00 am - 7:00 pm</h5>
       </div>
-      <div class="col-md-3 col-12 mob-view">
+      <div class="col-md-4 col-12 col-sm-4 mob-view">
         <a href="mailto:service@expresscarcaredenver.com">
           <h5>
             <i class="fa fa-envelope"></i>

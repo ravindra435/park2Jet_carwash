@@ -73,18 +73,25 @@
           <div class="row">
             <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
-            <div class="col-6 col-sm-6 col-md-6 text-center" *ngIf="reservationInfo?.data?.info?.noOfWashes">
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              *ngIf="reservationInfo?.data?.info?.noOfWashes"
+            >
               <b
                 >${{
-                  reservationInfo?.data?.info?.priceInfo?.price * reservationInfo?.data?.info?.priceInfo?.noOfWashes 
+                  reservationInfo?.data?.info?.priceInfo?.price *
+                    reservationInfo?.data?.info?.priceInfo?.noOfWashes
                     | number: "1.2-2"
                 }}</b
               >
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center" *ngIf="!reservationInfo?.data?.info?.noOfWashes">
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              *ngIf="!reservationInfo?.data?.info?.noOfWashes"
+            >
               <b
                 >${{
-                  reservationInfo?.data?.info?.priceInfo?.monthlyPrice 
+                  reservationInfo?.data?.info?.priceInfo?.monthlyPrice
                     | number: "1.2-2"
                 }}</b
               >

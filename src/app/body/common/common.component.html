@@ -8,6 +8,7 @@
         TERMS & CONDITIONS
       </h1>
       <h1 *ngIf="this.currentURL == '/main/PrivacyPolicy'">PRIVACY POLICY</h1>
+      <h1 *ngIf="this.currentURL == '/main/AboutUs'">ABOUT US</h1>
     </div>
     <div class="common-body-inner">
       <div class="common-body-inner-card">
@@ -302,7 +303,7 @@
           class="p-3"
           *ngIf="this.currentURL == '/main/CancellationRefundPolicy'"
         >
-          <div style="height: 41.6vh; overflow-y: auto">
+          <div style="height: 36.6vh; overflow-y: auto">
             <p>
               All refunds and returns are handled by Express Car Management.
               Approval is at the sole discretion of management, and considered
@@ -459,6 +460,15 @@
             commercially reasonable efforts to promptly determine and remedy the
             problem.
           </p>
+        </div>
+        <div class="p-3" *ngIf="this.currentURL == '/main/AboutUs'">
+          <div style="height: 36.6vh; overflow-y: auto">
+            <p>
+              A Family Owned and Operated business in Denver. Conveniently
+              located north of Pena Blvd and just 5 miles west of Denver
+              International Airport.
+            </p>
+          </div>
         </div>
       </div>
     </div>
