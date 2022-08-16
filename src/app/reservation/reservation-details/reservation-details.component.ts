@@ -22,6 +22,8 @@ export class ReservationDetailsComponent implements OnInit {
 
   cancelReservation(){
     
+    
+
   }
 
 }

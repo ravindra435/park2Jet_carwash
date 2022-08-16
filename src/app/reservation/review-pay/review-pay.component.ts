@@ -41,6 +41,9 @@ export class ReviewPayComponent implements OnInit {
 
     this.selectedCarWashType = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
     this.personalInfo = sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null;
+    if(!this.selectedCarWashType || !this.personalInfo){
+      this.router.navigateByUrl("/reservation/purchase");
+    }
     this.cardDetailsForm = this.fb.group({
       nameOnCard: ['', Validators.required],
     });
@@ -124,6 +127,7 @@ export class ReviewPayComponent implements OnInit {
 
       if (resp.statusCode === 200) {
         this.spinner.hide();
+        this.apiService.stepper.emit('4')
         sessionStorage.removeItem('selectedCarWash');
         sessionStorage.removeItem('userInfo');
         sessionStorage.setItem('reservationInfo' , JSON.stringify(resp));

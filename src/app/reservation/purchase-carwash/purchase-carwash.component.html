@@ -41,7 +41,7 @@
                   [checked]="carwash.isChecked && carwash.noOfWashes == '1' ? true : null"
                 />
                 <label class="form-check-label" for="flexRadioDefault1{{j}}">
-                  One
+                  One  ${{carwash?.price}}
                 </label>
               </div>
               &nbsp;
@@ -86,7 +86,7 @@
                   [checked]="carwash.isChecked && carwash.noOfWashes == 'monthly' ? true : false"
                 />
                 <label class="form-check-label" for="flexRadioDefaultMonthly{{j}}">
-                  Monthly
+                  Monthly  ${{carwash?.monthlyPrice}}
                 </label>
               </div>
               &nbsp;

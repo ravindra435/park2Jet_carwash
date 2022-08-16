@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -46,6 +46,7 @@ export class ApiService {
   }
 
 
-
+  stepper = new EventEmitter<any>();
+  
 
 }
