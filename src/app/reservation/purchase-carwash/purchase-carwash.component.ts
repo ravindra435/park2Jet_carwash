@@ -85,7 +85,7 @@ export class PurchaseCarwashComponent implements OnInit {
           item.carWashPrice = carWash.price * Number(noOfWashes);
           item.noOfWashes = Number(noOfWashes);
           item.tax = ((carWash.price * Number(noOfWashes)) * parseFloat(carWash.taxPercentage)) / 100;
-          item.totalFee = (carWash.carWashPrice *  Number(noOfWashes)) + item.tax;
+          item.totalFee = (carWash.carWashPrice) + item.tax;
         } else {
           item.carWashPrice = carWash.monthlyPrice;
           item.noOfWashes = noOfWashes;

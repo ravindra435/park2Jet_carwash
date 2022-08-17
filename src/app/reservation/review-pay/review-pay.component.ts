@@ -132,12 +132,6 @@ export class ReviewPayComponent implements OnInit {
         sessionStorage.removeItem('userInfo');
         sessionStorage.setItem('reservationInfo' , JSON.stringify(resp));
         this.router.navigateByUrl("/reservation/confirm")
-        // Reservation Email Trigger
-        setTimeout(() => {
-          this.apiService
-          .reservationEmail({ code: resp.reservationCodes[0].code })
-          .subscribe((res) => {});
-        }, 10);
         
       } else {
         this.cardDetailsForm.reset();
