@@ -18,14 +18,14 @@
         Select CarWash </a>
       </li>
       <li class="nav-listitem" (click)="navigate('2' , '/reservation/user/details')" [ngClass]="{
-        activeClass: currentStepper == '2' && selectedCarWash != null,
+        activeClass: currentStepper == '2' ,
         hoverClass : selectedCarWash != null
 
       }">
         <a>My Details</a>
       </li>
       <li class="nav-listitem" (click)="navigate('3' , '/reservation/review/pay')" [ngClass]="{
-        activeClass: currentStepper == '3' && userInfo != null,
+        activeClass: currentStepper == '3',
         hoverClass : userInfo != null
 
       }">
