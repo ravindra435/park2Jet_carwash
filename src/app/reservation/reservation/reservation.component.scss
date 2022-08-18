@@ -20,3 +20,29 @@
 .hoverClass {
   cursor: pointer;
 }
+
+.nav-body {
+  width: 85%;
+  margin: 0 auto;
+}
+.nav-body-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background-color: #3a4341;
+  padding: 0px;
+
+  text-align: center;
+}
+@media (max-width: 576px) {
+  .nav-body {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .nav-listitem a {
+    color: #fff;
+    font-size: 20px;
+    padding: 6px;
+    font-size: 15px;
+  }
+}

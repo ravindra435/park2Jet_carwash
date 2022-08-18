@@ -16,3 +16,17 @@
   font-weight: bold;
   background-color: red;
 }
+.reservation-body {
+  width: 73%;
+  margin: 0 auto;
+  height: 48vh;
+  overflow-y: auto;
+}
+@media (max-width: 576px) {
+  .reservation-body {
+    width: 100%;
+    margin: 0 auto;
+    height: 80vh;
+    overflow-y: auto;
+  }
+}

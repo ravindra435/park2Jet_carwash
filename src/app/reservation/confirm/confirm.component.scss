@@ -23,3 +23,44 @@ p {
   font-weight: bold;
   background-color: red;
 }
+
+.carWashPrice-final {
+  font-size: 15px;
+  color: red;
+  margin-top: 2px;
+  font-weight: bold;
+}
+.carWashPrice {
+  font-size: 25px;
+  color: red;
+  font-weight: bold;
+}
+.carwash-summary {
+  color: red;
+  font-size: 20px;
+}
+.review-pay-body {
+  width: 73%;
+  margin: 0 auto;
+}
+@media (max-width: 576px) {
+  .carWashPrice {
+    font-size: 13px;
+    color: red;
+    font-weight: bold;
+  }
+  .review-pay-body {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .carWashPrice-final {
+    font-size: 13px;
+    color: red;
+    font-weight: bold;
+  }
+  .carwash-summary {
+    color: red;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}

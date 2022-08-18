@@ -1,5 +1,5 @@
 <!-- <div class="user-title">User Details</div> -->
-<div style="width: 73%; margin: 0 auto">
+<div class="review-pay-body">
   <div class="user-content">
     <div class="user-card p-4 pt-0 row" style="width: 100%">
       <h3 style="color: red; font-size: 20px">Review</h3>
@@ -141,9 +141,7 @@
       </div>
       <div class="col-md-1 col-sm-1"></div>
       <div class="col-md-4 col-sm-4">
-        <h4 class="text-center" style="color: red; font-size: 20px">
-          CARWASH SUMMERY
-        </h4>
+        <h4 class="text-center carwash-summary">CARWASH SUMMERY</h4>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
@@ -171,14 +169,11 @@
               <b>${{ selectedCarWashType?.tax | number: "1.2-2" }}</b>
             </div>
             <hr />
-            <div
-              class="col-5 col-sm-5 col-md-5"
-              style="font-size: 25px; color: red; font-weight: bold"
-            >
+            <div class="col-5 col-sm-5 col-md-5 carWashPrice">
               ${{ selectedCarWashType?.totalFee | number: "1.2-2" }}
             </div>
-            <div class="col-7 col-sm-7 col-md-7 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 600">
+            <div class="col-7 col-sm-7 col-md-7 text-center carWashPrice-final">
+              <p>
                 Pay Now $ {{ selectedCarWashType?.totalFee | number: "1.2-2" }}
               </p>
             </div>

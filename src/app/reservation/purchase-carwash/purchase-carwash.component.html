@@ -4,30 +4,18 @@
     <br />
 
     <div class="container_fluid col-12 p-4" *ngIf="carWashTypes$.length > 0">
-      <div style="text-align: center; width: 73%; margin: 0 auto" >
-        <h1 style="color: #f11010; font-size: 30px; font-weight: bold">
-          Select The Carwash Package
-        </h1>
-        <div class="row mt-3 p-3" style="border: 1px solid #c6b5b5" *ngFor="let carwash of carWashTypes$;let j = index;">
-          <div class="col-md-8">
-            <img
-              src="{{carwash.imageUrl}}"
-              style="width: 100%"
-              height="270px"
-              alt=""
-            />
+      <div class="purchase-body-inner">
+        <h1 class="purchase-title">Select The Carwash Package</h1>
+        <div
+          class="row mt-3 p-3"
+          style="border: 1px solid #c6b5b5"
+          *ngFor="let carwash of carWashTypes$; let j = index"
+        >
+          <div class="col-md-8 col-12">
+            <img src="{{ carwash.imageUrl }}" alt="" class="img-carwash" />
           </div>
-          <div class="col-md-4 pl-2 mt-2">
-            <h3
-              style="
-                text-align: left;
-                font-weight: bold;
-                padding-left: 41px;
-                font-size: 22px;
-              "
-            >
-              No of carwash to purchase
-            </h3>
+          <div class="col-md-4 pl-2 mt-2 col-12">
+            <h3 class="purchase-carwash-title">No of carwash to purchase</h3>
             <div style="display: block; width: 100%">
               &nbsp;
               <div class="form-check">
@@ -35,13 +23,15 @@
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
-                  id="flexRadioDefault1{{j}}"
-                  value="{{carwash.washBookTypeId}}"
-                  (click)="selectCarWashType(carwash,'1',$event)"
-                  [checked]="carwash.isChecked && carwash.noOfWashes == '1' ? true : null"
+                  id="flexRadioDefault1{{ j }}"
+                  value="{{ carwash.washBookTypeId }}"
+                  (click)="selectCarWashType(carwash, '1', $event)"
+                  [checked]="
+                    carwash.isChecked && carwash.noOfWashes == '1' ? true : null
+                  "
                 />
-                <label class="form-check-label" for="flexRadioDefault1{{j}}">
-                  One  ${{carwash?.price}}
+                <label class="form-check-label" for="flexRadioDefault1{{ j }}">
+                  One ${{ carwash?.price }}
                 </label>
               </div>
               &nbsp;
@@ -50,12 +40,14 @@
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
-                  id="flexRadioDefault2{{j}}"
-                  value="{{carwash.washBookTypeId}}"
-                  (click)="selectCarWashType(carwash,'2',$event)"
-                  [checked]="carwash.isChecked && carwash.noOfWashes == '2' ? true : null"
+                  id="flexRadioDefault2{{ j }}"
+                  value="{{ carwash.washBookTypeId }}"
+                  (click)="selectCarWashType(carwash, '2', $event)"
+                  [checked]="
+                    carwash.isChecked && carwash.noOfWashes == '2' ? true : null
+                  "
                 />
-                <label class="form-check-label" for="flexRadioDefault2{{j}}">
+                <label class="form-check-label" for="flexRadioDefault2{{ j }}">
                   Two
                 </label>
               </div>
@@ -65,12 +57,14 @@
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
-                  id="flexRadioDefault5{{j}}"
-                  value="{{carwash.washBookTypeId}}"
-                  (click)="selectCarWashType(carwash,'5',$event)"
-                  [checked]="carwash.isChecked && carwash.noOfWashes == '5' ? true : null"
+                  id="flexRadioDefault5{{ j }}"
+                  value="{{ carwash.washBookTypeId }}"
+                  (click)="selectCarWashType(carwash, '5', $event)"
+                  [checked]="
+                    carwash.isChecked && carwash.noOfWashes == '5' ? true : null
+                  "
                 />
-                <label class="form-check-label" for="flexRadioDefault5{{j}}">
+                <label class="form-check-label" for="flexRadioDefault5{{ j }}">
                   Five
                 </label>
               </div>
@@ -80,13 +74,20 @@
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
-                  id="flexRadioDefaultMonthly{{j}}"
-                  value="{{carwash.washBookTypeId}}"
-                  (click)="selectCarWashType(carwash,'monthly',$event)"
-                  [checked]="carwash.isChecked && carwash.noOfWashes == 'monthly' ? true : false"
+                  id="flexRadioDefaultMonthly{{ j }}"
+                  value="{{ carwash.washBookTypeId }}"
+                  (click)="selectCarWashType(carwash, 'monthly', $event)"
+                  [checked]="
+                    carwash.isChecked && carwash.noOfWashes == 'monthly'
+                      ? true
+                      : false
+                  "
                 />
-                <label class="form-check-label" for="flexRadioDefaultMonthly{{j}}">
-                  Monthly  ${{carwash?.monthlyPrice}}
+                <label
+                  class="form-check-label"
+                  for="flexRadioDefaultMonthly{{ j }}"
+                >
+                  Monthly ${{ carwash?.monthlyPrice }}
                 </label>
               </div>
               &nbsp;

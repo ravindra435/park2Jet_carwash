@@ -1,39 +1,44 @@
 <div class="container">
   <h1 style="color: red; text-align: center">Purchase Carwash</h1>
-  <div style="width: 85%; margin: 0 auto">
-    <ul style="
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        background-color: #3a4341;
-        padding: 0px;
-
-        text-align: center;
-      ">
-      <li class="nav-listitem" (click)="navigate('1' , '/reservation/purchase')" [ngClass]="{
-        activeClass: currentStepper == '1',
-        hoverClass : selectedCarWash != null || userInfo != null
-      }">
-        <a>
-        Select CarWash </a>
+  <div class="nav-body">
+    <ul class="nav-body-list">
+      <li
+        class="nav-listitem"
+        (click)="navigate('1', '/reservation/purchase')"
+        [ngClass]="{
+          activeClass: currentStepper == '1',
+          hoverClass: selectedCarWash != null || userInfo != null
+        }"
+      >
+        <a> Select CarWash </a>
       </li>
-      <li class="nav-listitem" (click)="navigate('2' , '/reservation/user/details')" [ngClass]="{
-        activeClass: currentStepper == '2' ,
-        hoverClass : selectedCarWash != null
-
-      }">
+      <li
+        class="nav-listitem"
+        (click)="navigate('2', '/reservation/user/details')"
+        [ngClass]="{
+          activeClass: currentStepper == '2',
+          hoverClass: selectedCarWash != null
+        }"
+      >
         <a>My Details</a>
       </li>
-      <li class="nav-listitem" (click)="navigate('3' , '/reservation/review/pay')" [ngClass]="{
-        activeClass: currentStepper == '3',
-        hoverClass : userInfo != null
-
-      }">
+      <li
+        class="nav-listitem"
+        (click)="navigate('3', '/reservation/review/pay')"
+        [ngClass]="{
+          activeClass: currentStepper == '3',
+          hoverClass: userInfo != null
+        }"
+      >
         <a>Review & Pay</a>
       </li>
-      <li class="nav-listitem" (click)="navigate('4' , '/reservation/confirm')" [ngClass]="{
-        activeClass: currentStepper == '4'
-      }">
+      <li
+        class="nav-listitem"
+        (click)="navigate('4', '/reservation/confirm')"
+        [ngClass]="{
+          activeClass: currentStepper == '4'
+        }"
+      >
         <a>Confirm</a>
       </li>
     </ul>
