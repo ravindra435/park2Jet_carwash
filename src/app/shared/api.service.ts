@@ -46,6 +46,16 @@ export class ApiService {
   }
 
 
+  public contactUs(data:any): Observable<any>{
+    try {
+      return this.http.post(this.apiBaseUrl + 'contactus',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+  }
+
+
   stepper = new EventEmitter<any>();
   
 
