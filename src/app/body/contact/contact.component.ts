@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ApiService } from 'src/app/shared/api.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -9,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit {
   contactusForm: FormGroup;
   submitted = false;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private apiService:ApiService) {
+    sessionStorage.clear();
     this.contactusForm = this.fb.group({
       email: [
         '',
@@ -41,22 +43,22 @@ export class ContactComponent implements OnInit {
       message: this.contactusForm.value.message,
     };
 
-    // this.apiservice.Contactus(obj).subscribe((res: any) => {
-    //   if (res.statusCode == 200) {
-    //     this.submitted = false;
-    //     this.contactusForm.reset();
-    //     Swal.fire({
-    //       icon: "success",
-    //       title: "THANK YOU",
-    //       text: "Thank You For Contacting With Us. We Will Get Back To You Soon.!",
-    //     });
-    //   } else {
-    //     this.submitted = false;
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "something went wrong please try again !",
-    //     });
-    //   }
-    // });
+    this.apiService.contactUs(obj).subscribe((res: any) => {
+      if (res.statusCode == 200) {
+        this.submitted = false;
+        this.contactusForm.reset();
+        Swal.fire({
+          icon: "success",
+          title: "THANK YOU",
+          text: "Thank You For Contacting With Us. We Will Get Back To You Soon.!",
+        });
+      } else {
+        this.submitted = false;
+        Swal.fire({
+          icon: "error",
+          title: "something went wrong please try again !",
+        });
+      }
+    });
   }
 }

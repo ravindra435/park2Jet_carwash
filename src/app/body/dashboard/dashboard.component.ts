@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+     sessionStorage.clear();
+  }
 
   ngOnInit(): void {}
 

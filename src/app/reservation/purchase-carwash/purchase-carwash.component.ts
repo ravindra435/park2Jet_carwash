@@ -41,7 +41,7 @@ export class PurchaseCarwashComponent implements OnInit {
       this.apiService.stepper.emit("2");
     } else {
       Swal.fire({
-        title: 'Please select carWash Type',
+        title: 'Please select the car wash package',
         text: '',
         confirmButtonColor:'red'
       })
