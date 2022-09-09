@@ -45,6 +45,34 @@ export class ApiService {
 
   }
 
+  public cancelReservation(data:any):Observable<any>{
+    try {
+      return this.http.post(this.apiBaseUrl + 'expreseCarCare/cancelReservation',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+    
+  }
+  public reservationCancelEmail(data:any): Observable<any>  {
+    try {
+      return this.http.post(this.apiBaseUrl + 'carWashReservation/email',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+
+  }
+
+  public getReservationInfo(data:any): Observable<any> {
+    try {
+      return this.http
+        .post(this.apiBaseUrl + "carWashReservationInfo" , data)
+        .pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+    }
+  }
 
   public contactUs(data:any): Observable<any>{
     try {

@@ -13,6 +13,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { QrCodeModule } from 'ng-qrcode';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     SweetAlert2Module,
     NgxSpinnerModule,
+    QrCodeModule
   ],
 })
 export class ReservationModule {}

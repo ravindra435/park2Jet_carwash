@@ -58,6 +58,12 @@
             }}</span>
           </p>
           <p>
+            <b>{{reservationInfo?.data?.info?.numberOfWashes ? 'Number Of Washes' : 'Package'}}</b> <br />
+            <span>{{
+              reservationInfo?.data?.info?.numberOfWashes ? reservationInfo?.data?.info?.numberOfWashes : 'Monthly'
+            }}</span>
+          </p>
+          <p>
             <b> Booked On</b> <br />
             <span>{{
               reservationInfo?.data?.info?.priceInfo?.paymentDate

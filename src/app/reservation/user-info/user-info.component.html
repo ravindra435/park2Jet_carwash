@@ -204,7 +204,10 @@
             <b>Car Wash</b> <br />
             <span>{{ selectedCarWashType?.displayName }}</span>
           </p>
-
+          <p >
+            <b>{{selectedCarWashType?.noOfWashes != 'monthly' ? 'Number Of Washes' : 'Package'}}</b> <br />
+            <span>{{ selectedCarWashType?.noOfWashes != 'monthly' ? selectedCarWashType?.noOfWashes  : 'Monthly'}}</span>
+          </p>
           <div class="row">
             <hr />
             <h4 style="color: red">Price Details</h4>

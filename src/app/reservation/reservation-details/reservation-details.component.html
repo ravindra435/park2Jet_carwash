@@ -20,6 +20,12 @@
                 reservationInfo?.data?.info?.priceInfo?.displayName
               }}</span>
             </p>
+            <p>
+              <b>{{reservationInfo?.data?.info?.numberOfWashes ? 'Number Of Washes' : 'Package'}}</b> <br />
+              <span>{{
+                reservationInfo?.data?.info?.numberOfWashes ? reservationInfo?.data?.info?.numberOfWashes : 'Monthly'
+              }}</span>
+            </p>
           </div>
           <div class="col-md-6 col-sm-6">
             <h3 style="color: red; font-size: 20px; text-align: center">
@@ -48,11 +54,11 @@
           </div> -->
           <br />
           <div class="col-sm-3 col-md-3"></div>
-          <!-- <div class="col-sm-4 col-md-4">
-            <br />
-            <button class="btn butons-css">Download Carwash Pass</button>
-          </div>
           <div class="col-sm-4 col-md-4">
+            <br />
+            <button class="btn butons-css" (click)="downloadCarWashPass(reservationInfo?.reservationCodes[0]?.code)">Download Carwash Pass</button>
+          </div>
+          <!-- <div class="col-sm-4 col-md-4">
             <br />
             <button class="btn butons-css" (click)="cancelReservation()">
               Cancel Carwash Pass
@@ -113,8 +119,24 @@
             </div>
             <hr />
           </div>
+          <div>
+            <qr-code
+                        value="{{ qrCodeValue }}"
+                        size="100"
+                        errorCorrectionLevel="M"
+                      ></qr-code>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: #fff">{{ spinnerInfo }}</p>
+</ngx-spinner>
