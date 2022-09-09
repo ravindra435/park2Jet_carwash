@@ -1,15 +1,31 @@
 <!-- <div class="user-title">User Details</div> -->
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
-    <div class="user-card p-4 row" style="width: 100%">
+    <div class="user-card p-4 pt-0 row" style="width: 100%">
       <div class="col-8 col-sm-8 col-md-8">
         <div class="row">
           <div class="col-md-6 col-sm-6">
-            <h3 style="color: red; font-size: 20px">Reservation Details</h3>
+            <h3 style="color: red; font-size: 20px">Carwash Details</h3>
             <hr
               style="color: red; border-bottom: 2px solid red; opacity: inherit"
             />
-            <p><b>Booked On </b>: {{reservationInfo?.data?.info?.priceInfo?.paymentDate}}</p>
+            <p>
+              <b>Booked On </b>
+              <br />
+              {{ reservationInfo?.data?.info?.priceInfo?.paymentDate }}
+            </p>
+            <p>
+              <b>Car Wash</b> <br />
+              <span>{{
+                reservationInfo?.data?.info?.priceInfo?.displayName
+              }}</span>
+            </p>
+            <p>
+              <b>{{reservationInfo?.data?.info?.numberOfWashes ? 'Number Of Washes' : 'Package'}}</b> <br />
+              <span>{{
+                reservationInfo?.data?.info?.numberOfWashes ? reservationInfo?.data?.info?.numberOfWashes : 'Monthly'
+              }}</span>
+            </p>
           </div>
           <div class="col-md-6 col-sm-6">
             <h3 style="color: red; font-size: 20px; text-align: center">
@@ -19,11 +35,14 @@
             <hr
               style="color: red; border-bottom: 2px solid red; opacity: inherit"
             />
-            <p><b>Name </b>: {{reservationInfo?.data?.info?.firstName}} {{reservationInfo?.data?.info?.lastName}}</p>
-            <p><b>Email </b>: {{reservationInfo?.data?.info?.email}}</p>
-            <p><b>Phone </b>: {{reservationInfo?.data?.info?.phone}}</p>
+            <p>
+              <b>Name </b>: {{ reservationInfo?.data?.info?.firstName }}
+              {{ reservationInfo?.data?.info?.lastName }}
+            </p>
+            <p><b>Email </b>: {{ reservationInfo?.data?.info?.email }}</p>
+            <p><b>Phone </b>: {{ reservationInfo?.data?.info?.phone }}</p>
           </div>
-          <div class="col-12 col-sm-12 col-md-12">
+          <!-- <div class="col-12 col-sm-12 col-md-12">
             <h3 style="color: red; font-size: 20px">Disclaimer& Notes</h3>
             <hr
               style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -32,22 +51,24 @@
               You MUST apply coupon under Promo Code when booking your
               reservation in order to receive the discount
             </div>
-          </div>
+          </div> -->
           <br />
           <div class="col-sm-3 col-md-3"></div>
           <div class="col-sm-4 col-md-4">
             <br />
-            <button class="btn butons-css">Download Reservation</button>
+            <button class="btn butons-css" (click)="downloadCarWashPass(reservationInfo?.reservationCodes[0]?.code)">Download Carwash Pass</button>
           </div>
-          <div class="col-sm-4 col-md-4">
+          <!-- <div class="col-sm-4 col-md-4">
             <br />
-            <button class="btn butons-css" (click)="cancelReservation()">Cancel Reservation</button>
-          </div>
+            <button class="btn butons-css" (click)="cancelReservation()">
+              Cancel Carwash Pass
+            </button>
+          </div> -->
         </div>
       </div>
       <div class="col-md-4 col-sm-4">
         <h3 style="color: red; font-size: 20px; text-align: center">
-          Reservation Quote
+          Purchase Details
         </h3>
 
         <hr
@@ -56,27 +77,66 @@
 
         <div class="reservation-summary p-3">
           <div class="row">
-            <h4 style="color: red">Quote</h4>
+            <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
-            <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{reservationInfo?.data?.info?.priceInfo?.price}}</b>
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              
+            >
+              <b
+                >${{
+                  reservationInfo?.data?.info?.priceInfo?.carWashPrice
+                    | number: "1.2-2"
+                }}</b
+              >
             </div>
+
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{reservationInfo?.data?.info?.priceInfo?.tax}}</b>
+              <b
+                >${{
+                  reservationInfo?.data?.info?.priceInfo?.tax | number: "1.2-2"
+                }}</b
+              >
             </div>
+            <hr />
             <div
-              class="col-6 col-sm-6 col-md-6"
+              class="col-5 col-sm-5 col-md-5"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              ${{reservationInfo?.data?.info?.priceInfo?.totalFee}}
+              ${{
+                reservationInfo?.data?.info?.priceInfo?.totalFee
+                  | number: "1.2-2"
+              }}
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 400">Pay Now ${{reservationInfo?.data?.info?.priceInfo?.totalFee}}</p>
+            <div class="col-7 col-sm-7 col-md-7 text-center mt-2">
+              <p style="font-size: 15px; font-weight: 400">
+                Pay Now ${{
+                  reservationInfo?.data?.info?.priceInfo?.totalFee
+                    | number: "1.2-2"
+                }}
+              </p>
             </div>
+            <hr />
+          </div>
+          <div>
+            <qr-code
+                        value="{{ qrCodeValue }}"
+                        size="100"
+                        errorCorrectionLevel="M"
+                      ></qr-code>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: #fff">{{ spinnerInfo }}</p>
+</ngx-spinner>

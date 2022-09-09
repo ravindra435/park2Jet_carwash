@@ -19,12 +19,18 @@ export class PurchaseCarwashComponent implements OnInit {
     private router: Router, 
     private apiService: ApiService,
     private spinner:NgxSpinnerService
-    ) { }
+    ) { 
+      this.apiService.stepper.emit("1");
+      sessionStorage.removeItem("reservationInfo");
+
+    }
 
   ngOnInit(): void {
 
     this.selectedCarWash = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
     this.fetchCarwashTypes();
+
+    sessionStorage.setItem('currentStepper' , "1");
 
 
   }
@@ -32,9 +38,10 @@ export class PurchaseCarwashComponent implements OnInit {
   navigateTouser() {
     if (this.selectedCarWash) {
       this.router.navigateByUrl('reservation/user/details');
+      this.apiService.stepper.emit("2");
     } else {
       Swal.fire({
-        title: 'Please select carWash Type',
+        title: 'Please select the car wash package',
         text: '',
         confirmButtonColor:'red'
       })
@@ -51,6 +58,7 @@ export class PurchaseCarwashComponent implements OnInit {
           if (this.selectedCarWash && this.selectedCarWash.washBookTypeId == item.washBookTypeId) {
             item.isChecked = true;
             item.noOfWashes = this.selectedCarWash.noOfWashes;
+            
           } else {
             item.isChecked = null;
             item.noOfWashes = null;
@@ -68,12 +76,22 @@ export class PurchaseCarwashComponent implements OnInit {
 
   // selected washType save to local storge 
   selectCarWashType(carWash: any, noOfWashes: string, event: any) {
-
+    sessionStorage.setItem('stepper' ,  "1");
     this.carWashTypes$.forEach(item => {
       if (item.washBookTypeId == carWash.washBookTypeId) {
         this.selectedCarWash = carWash;
         item.isChecked = true;
-        item.noOfWashes = noOfWashes;
+        if (noOfWashes != 'monthly') {
+          item.carWashPrice = carWash.price * Number(noOfWashes);
+          item.noOfWashes = Number(noOfWashes);
+          item.tax = ((carWash.price * Number(noOfWashes)) * parseFloat(carWash.taxPercentage)) / 100;
+          item.totalFee = (carWash.carWashPrice) + item.tax;
+        } else {
+          item.carWashPrice = carWash.monthlyPrice;
+          item.noOfWashes = noOfWashes;
+          item.tax = (carWash.monthlyPrice * parseFloat(carWash.taxPercentage)) / 100;
+          item.totalFee = Number(carWash.carWashPrice) + item.tax;
+        }
         sessionStorage.setItem("selectedCarWash", JSON.stringify(item));
       } else {
         item.isChecked = null;

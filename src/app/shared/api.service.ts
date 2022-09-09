@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -35,8 +35,56 @@ export class ApiService {
 
   }
 
+  public reservationEmail(data:any): Observable<any>  {
+    try {
+      return this.http.post(this.apiBaseUrl + 'carWashReservation/email',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+
+  }
+
+  public cancelReservation(data:any):Observable<any>{
+    try {
+      return this.http.post(this.apiBaseUrl + 'expreseCarCare/cancelReservation',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+    
+  }
+  public reservationCancelEmail(data:any): Observable<any>  {
+    try {
+      return this.http.post(this.apiBaseUrl + 'carWashReservation/email',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+
+  }
+
+  public getReservationInfo(data:any): Observable<any> {
+    try {
+      return this.http
+        .post(this.apiBaseUrl + "carWashReservationInfo" , data)
+        .pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public contactUs(data:any): Observable<any>{
+    try {
+      return this.http.post(this.apiBaseUrl + 'contactus',data).pipe(map((result) => result));
+    } catch (error) {
+      throw error;
+
+    }
+  }
 
 
-
+  stepper = new EventEmitter<any>();
+  
 
 }

@@ -2,7 +2,7 @@
 <div style="width: 73%; margin: 0 auto">
   <div class="user-content">
     <div class="user-card p-4 row" style="width: 100%">
-      <div class="col-md-9 col-sm-9">
+      <div class="col-md-8 col-sm-8 mt-1">
         <h3 style="color: red; font-size: 20px">Confirmation</h3>
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
@@ -35,13 +35,14 @@
         </div>
       </div>
 
-      <div class="col-md-3 col-sm-3">
-        <p class="text-center">RESERVATION SUMMERY</p>
+      <div class="col-md-4 col-sm-4">
+        <p class="text-center" style="color: red; font-size: 20px">
+          CARWASH SUMMERY
+        </p>
 
         <hr
           style="color: red; border-bottom: 2px solid red; opacity: inherit"
         />
-
         <div class="reservation-summary p-3">
           <h5><b>Express carwash</b></h5>
           <p>
@@ -50,33 +51,76 @@
             <br />
             service@expresscarcaredenver.com
           </p>
-          <h6>Reservation Date</h6>
-          <span>{{reservationInfo?.data?.info?.priceInfo?.paymentDate}}</span>
-          <p>Personal Details</p>
-          <p>{{reservationInfo?.data?.info?.firstName}} {{reservationInfo?.data?.info?.lastName}}</p>
-          <h6>Contact Details</h6>
-          <span>{{reservationInfo?.data?.info?.email}}</span> <br />
-          <span>{{reservationInfo?.data?.info?.phone}}</span>
+          <p>
+            <b>Car Wash</b> <br />
+            <span>{{
+              reservationInfo?.data?.info?.priceInfo?.displayName
+            }}</span>
+          </p>
+          <p>
+            <b>{{reservationInfo?.data?.info?.numberOfWashes ? 'Number Of Washes' : 'Package'}}</b> <br />
+            <span>{{
+              reservationInfo?.data?.info?.numberOfWashes ? reservationInfo?.data?.info?.numberOfWashes : 'Monthly'
+            }}</span>
+          </p>
+          <p>
+            <b> Booked On</b> <br />
+            <span>{{
+              reservationInfo?.data?.info?.priceInfo?.paymentDate
+            }}</span>
+          </p>
+
           <div class="row">
-            <h4 style="color: red">Quote</h4>
+            <h4 style="color: red">Price Details</h4>
             <div class="col-6 col-sm-6 col-md-6">Car Wash</div>
-            <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{reservationInfo?.data?.info?.priceInfo?.price | number: '1.2-2'}}</b>
+            <div
+              class="col-6 col-sm-6 col-md-6 text-center"
+              
+            >
+              <b
+                >${{
+                  reservationInfo?.data?.info?.priceInfo?.carWashPrice | number: "1.2-2"
+                }}</b
+              >
             </div>
+           
             <div class="col-6 col-sm-6 col-md-6">Taxes & Fees</div>
             <div class="col-6 col-sm-6 col-md-6 text-center">
-              <b>${{reservationInfo?.data?.info?.priceInfo?.tax | number: '1.2-2'}}</b>
+              <b
+                >${{
+                  reservationInfo?.data?.info?.priceInfo?.tax | number: "1.2-2"
+                }}</b
+              >
             </div>
+            <hr />
             <div
-              class="col-6 col-sm-6 col-md-6"
+              class="col-5 col-sm-5 col-md-5"
               style="font-size: 25px; color: red; font-weight: bold"
             >
-              ${{reservationInfo?.data?.info?.priceInfo?.totalFee | number: '1.2-2'}}
+              ${{
+                reservationInfo?.data?.info?.priceInfo?.totalFee
+                  | number: "1.2-2"
+              }}
             </div>
-            <div class="col-6 col-sm-6 col-md-6 text-center mt-2">
-              <p style="font-size: 15px; font-weight: 400">Pay Now ${{reservationInfo?.data?.info?.priceInfo?.totalFee | number: '1.2-2'}}</p>
+            <div class="col-7 col-sm-7 col-md-7 text-center mt-2">
+              <p style="font-size: 15px; font-weight: 600">
+                Pay Now $
+                {{
+                  reservationInfo?.data?.info?.priceInfo?.totalFee
+                    | number: "1.2-2"
+                }}
+              </p>
             </div>
+            <hr />
           </div>
+          <h5 style="color: red">User Details</h5>
+          <span>
+            {{ reservationInfo?.data?.info?.firstName }}
+            {{ reservationInfo?.data?.info?.lastName }} </span
+          ><br />
+
+          <span>{{ reservationInfo?.data?.info?.email }}</span> <br />
+          <span>{{ reservationInfo?.data?.info?.phone }}</span>
         </div>
       </div>
     </div>

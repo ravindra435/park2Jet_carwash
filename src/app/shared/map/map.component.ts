@@ -21,8 +21,8 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.markers.push({
       position: {
-        lat: 17.7153,
-        lng: 83.3242,
+        lat: 39.8441261,
+        lng: -104.905484,
       },
       // label: {
       //   color: "black",

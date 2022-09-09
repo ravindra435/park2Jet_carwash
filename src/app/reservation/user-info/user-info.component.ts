@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-user-info',
@@ -13,10 +14,15 @@ export class UserInfoComponent implements OnInit {
   selectedCarWashType:any
   constructor(
     private fb: FormBuilder,
-
-    private router: Router
+    private router: Router,
+    private apiService:ApiService
   ) {
+    sessionStorage.setItem('currentStepper' , "2");
+
      this.selectedCarWashType = sessionStorage.getItem('selectedCarWash') ? JSON.parse(sessionStorage.getItem('selectedCarWash')) : null;
+     if(!this.selectedCarWashType){
+       this.router.navigateByUrl("/reservation/purchase")
+     }
      this.loadUserForm();
      this.patchUserForm()
   }
@@ -75,6 +81,8 @@ export class UserInfoComponent implements OnInit {
     if (this.userForm.invalid) {
       return;
     }
+    this.apiService.stepper.emit("3");
+    sessionStorage.setItem('stepper' ,  "2");
     sessionStorage.setItem('userInfo' , JSON.stringify(this.userForm.value));
     this.router.navigateByUrl('/reservation/review/pay');
   }

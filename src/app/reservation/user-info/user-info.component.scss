@@ -8,6 +8,11 @@
 }
 .required {
   color: red;
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .logo {
@@ -15,6 +20,9 @@
 
   margin: 0 45px 35px;
   object-fit: contain;
+}
+.relative {
+  position: relative;
 }
 .input_box {
   box-shadow: none;
@@ -31,8 +39,12 @@
 label {
   font-weight: bold;
   font-size: 18px;
+  color: red;
 }
-
+.reservation-summary {
+  border: 0.8px solid #c0aeae;
+  word-break: break-all;
+}
 .signin-btn {
   text-align: center;
   width: 300px;
