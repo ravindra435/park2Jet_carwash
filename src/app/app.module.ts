@@ -19,7 +19,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   declarations: [AppComponent],
   imports: [
     NgxBootstrapIconsModule.pick(allIcons),
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     CommonModule,
     AppRoutingModule,
